@@ -1,3 +1,11 @@
+.hide-cursor * { 
+	cursor: none !important;
+}
+
+.hide-cursor *:active {
+	pointer-events: none;
+}
+
 .transition * {
 	position:absolute;
 	left: 0;
@@ -9,7 +17,7 @@
 	animation-duration: 3s;
 }
 .transition .border { background-color: white; }
-.transition input { display: none; }
+.transition input, button { display: none; }
 
 .transition img:hover { cursor: pointer; }
 .transition img:active, img:not(:hover) { cursor: default; }

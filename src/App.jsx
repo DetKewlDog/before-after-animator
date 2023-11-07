@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Transition from './components/Transition';
+import record from './recorder';
 
 function App() {
 	let [duration, setDuration] = useState(3);
@@ -12,9 +13,10 @@ function App() {
 			switch (e.key) {
 				case 'ArrowUp': { updateDuration(duration - 1); break; }
 				case 'ArrowDown': { updateDuration(duration + 1); break; }
-				case 'r': { updateReverse(!reverse); break; }
+				case 'q': { updateReverse(!reverse); break; }
 				case 'e': { updateDirection(direction == 'rtl' ? 'ltr' : 'rtl'); break; }
 				case ' ': { updatePlayState(!playState); break; }
+				case 'r': { record(duration); break; }
 			}
 		}
 	}, [duration, direction, reverse, playState]);
@@ -48,7 +50,9 @@ function App() {
 			i.style.animationPlayState = playState ? 'running' : 'paused'	
 		);
 
-	return (<Transition img1='/img1.png' img2='/img2.png' />);
+	return (
+		<Transition img1='/img1.png' img2='/img2.png' />
+	);
 }
 
 export default App;

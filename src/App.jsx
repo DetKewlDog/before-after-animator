@@ -9,6 +9,15 @@ function App() {
 	let [playState, setPlayState] = useState(true);
 
 	useEffect(() => {
+		alert(`Controls:
+↑↓ - Increase / Decrease Speed
+Q - Reverse Transition
+E - Change Seperator Angle
+Space - Pause / Resume
+R - Export as Video`)
+	}, []);
+
+	useEffect(() => {
 		document.onkeydown = e => {
 			switch (e.key) {
 				case 'ArrowUp': { updateDuration(duration - 1); break; }

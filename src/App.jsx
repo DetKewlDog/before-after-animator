@@ -7,14 +7,16 @@ function App() {
 	let [angle, setAngle] = useState('asc');
 	let [reverse, setReverse] = useState(false);
 	let [playState, setPlayState] = useState(true);
+	let [border, setBorder] = useState(true);
 
 	useEffect(() => {
 		alert(`Made by DetKewlDog! https://github.com/DetKewlDog
 How To Use:
 ↑↓ - Increase / Decrease Speed
 Q - Reverse Transition
-E - Change Seperator Angle
+E - Change Border Angle
 Space - Pause / Resume
+B - Toggle Border
 R - Export as Video
 Click on the images to import your own!`)
 	}, []);
@@ -27,10 +29,11 @@ Click on the images to import your own!`)
 				case 'q': { updateReverse(!reverse); break; }
 				case 'e': { updateAngle(angle == 'asc' ? 'desc' : 'asc'); break; }
 				case ' ': { updatePlayState(!playState); break; }
+				case 'b': { updateBorder(!border); break; }
 				case 'r': { record(duration); break; }
 			}
 		}
-	}, [duration, angle, reverse, playState]);
+	}, [duration, angle, reverse, playState, border]);
 
 	function updateTransition(setState, state, callback) {
 		document.querySelectorAll('.transition, .transition *').forEach(callback);
@@ -60,6 +63,11 @@ Click on the images to import your own!`)
 		updateTransition(setPlayState, playState, i =>
 			i.style.animationPlayState = playState ? 'running' : 'paused'	
 		);
+
+	const updateBorder = (border) => {
+		document.querySelector('.transition .border').style.opacity = border ? 1 : 0;
+		setBorder(border);
+	}
 
 	return (
 		<Transition img1='/img1.png' img2='/img2.png' />

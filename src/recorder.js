@@ -12,7 +12,7 @@ function exitFullscreen() {
         || document.webkitExitFullscreen
         || document.mozExitFullScreen
         || document.msExitFullscreen;
-    func.call(el);
+    func.call(document);
 }
 
 function fullScreenEnabled() {
@@ -54,7 +54,7 @@ function record(duration) {
                 let url = URL.createObjectURL(
                     new Blob([e.data], { "type": "video/mp4" })
                 );
-                
+
                 let a = document.createElement('a');
                 a.href = url;
                 a.target = '_blank';

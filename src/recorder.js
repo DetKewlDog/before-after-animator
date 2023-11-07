@@ -51,9 +51,17 @@ function record(duration) {
                 setTimeout(() => recorder.stop(), duration * 750);
             }
             recorder.ondataavailable = e => {
-                window.open(URL.createObjectURL(
+                let url = URL.createObjectURL(
                     new Blob([e.data], { "type": "video/mp4" })
-                ));
+                );
+                
+                let a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
                 stream.getTracks().forEach(track => track.stop());
                 document.body.classList.remove('hide-cursor');
                 if (!fullscreen) exitFullscreen();

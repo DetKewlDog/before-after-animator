@@ -9,12 +9,14 @@ function App() {
 	let [playState, setPlayState] = useState(true);
 
 	useEffect(() => {
-		alert(`Controls:
+		alert(`Made by DetKewlDog! https://github.com/DetKewlDog
+How To Use:
 ↑↓ - Increase / Decrease Speed
 Q - Reverse Transition
 E - Change Seperator Angle
 Space - Pause / Resume
-R - Export as Video`)
+R - Export as Video
+Click on the images to import your own!`)
 	}, []);
 
 	useEffect(() => {

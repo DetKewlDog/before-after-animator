@@ -4,7 +4,7 @@ import record from './recorder';
 
 function App() {
 	let [duration, setDuration] = useState(3);
-	let [angle, setAngle] = useState('rtl');
+	let [angle, setAngle] = useState('asc');
 	let [reverse, setReverse] = useState(false);
 	let [playState, setPlayState] = useState(true);
 
@@ -14,7 +14,7 @@ function App() {
 				case 'ArrowUp': { updateDuration(duration - 1); break; }
 				case 'ArrowDown': { updateDuration(duration + 1); break; }
 				case 'q': { updateReverse(!reverse); break; }
-				case 'e': { updateAngle(angle == 'rtl' ? 'ltr' : 'rtl'); break; }
+				case 'e': { updateAngle(angle == 'asc' ? 'desc' : 'asc'); break; }
 				case ' ': { updatePlayState(!playState); break; }
 				case 'r': { record(duration); break; }
 			}

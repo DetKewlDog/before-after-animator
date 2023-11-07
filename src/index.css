@@ -22,36 +22,36 @@
 .transition img:hover { cursor: pointer; }
 .transition img:active, img:not(:hover) { cursor: default; }
 
-.transition.rtl img:nth-of-type(1) { animation-name: anim-img1-rtl; }
-.transition.rtl img:nth-of-type(2) { animation-name: anim-img2-rtl; }
-.transition.rtl .border { animation-name: anim-border-rtl; }
+.transition.asc img:nth-of-type(1) { animation-name: anim-img1-asc; }
+.transition.asc img:nth-of-type(2) { animation-name: anim-img2-asc; }
+.transition.asc .border { animation-name: anim-border-asc; }
 
-.transition.ltr img:nth-of-type(1) { animation-name: anim-img1-ltr; }
-.transition.ltr img:nth-of-type(2) { animation-name: anim-img2-ltr; }
-.transition.ltr .border { animation-name: anim-border-ltr; }
+.transition.desc img:nth-of-type(1) { animation-name: anim-img1-desc; }
+.transition.desc img:nth-of-type(2) { animation-name: anim-img2-desc; }
+.transition.desc .border { animation-name: anim-border-desc; }
 
-@keyframes anim-img1-rtl   {
+@keyframes anim-img1-asc   {
 	from, 20% { clip-path: polygon(   0%   0% , 120%   0% , 100% 100% ,   0% 100% ); }
 	to  , 80% { clip-path: polygon(   0%   0% ,   0%   0% , -20% 100% ,   0% 100% ); }
 }
-@keyframes anim-img2-rtl   {
+@keyframes anim-img2-asc   {
 	from, 20% { clip-path: polygon( 120%   0% , 100%   0% , 100% 100% , 100% 100% ); }
 	to  , 80% { clip-path: polygon(   0%   0% , 100%   0% , 100% 100% , -20% 100% ); }
 }
-@keyframes anim-border-rtl {
+@keyframes anim-border-asc {
 	from, 20% { clip-path: polygon( 120%   0% , 122%   0% , 102% 100% , 100% 100% ); }
 	to  , 80% { clip-path: polygon(  -2%   0% ,   0%   0% , -20% 100% , -22% 100% ); }
 }
 
-@keyframes anim-img1-ltr   {
+@keyframes anim-img1-desc   {
 	from, 20% { clip-path: polygon(   0%   0% , 100%   0% , 120% 100% ,   0% 100% ); }
 	to  , 80% { clip-path: polygon(   0%   0% , -20%   0% ,   0% 100% ,   0% 100% ); }
 }
-@keyframes anim-img2-ltr   {
+@keyframes anim-img2-desc   {
 	from, 20% { clip-path: polygon( 100%   0% , 100%   0% , 100% 100% , 120% 100% ); }
 	to  , 80% { clip-path: polygon( -20%   0% , 100%   0% , 100% 100% ,   0% 100% ); }
 }
-@keyframes anim-border-ltr 	{
+@keyframes anim-border-desc 	{
 	from, 20% { clip-path: polygon( 100%   0% , 102%   0% , 122% 100% , 120% 100% ); }
 	to  , 80% { clip-path: polygon( -22%   0% , -20%   0% ,   0% 100% ,  -2% 100% ); }
 }

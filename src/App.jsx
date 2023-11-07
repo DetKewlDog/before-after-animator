@@ -4,7 +4,7 @@ import record from './recorder';
 
 function App() {
 	let [duration, setDuration] = useState(3);
-	let [direction, setDirection] = useState('rtl');
+	let [angle, setAngle] = useState('rtl');
 	let [reverse, setReverse] = useState(false);
 	let [playState, setPlayState] = useState(true);
 
@@ -14,12 +14,12 @@ function App() {
 				case 'ArrowUp': { updateDuration(duration - 1); break; }
 				case 'ArrowDown': { updateDuration(duration + 1); break; }
 				case 'q': { updateReverse(!reverse); break; }
-				case 'e': { updateDirection(direction == 'rtl' ? 'ltr' : 'rtl'); break; }
+				case 'e': { updateAngle(angle == 'rtl' ? 'ltr' : 'rtl'); break; }
 				case ' ': { updatePlayState(!playState); break; }
 				case 'r': { record(duration); break; }
 			}
 		}
-	}, [duration, direction, reverse, playState]);
+	}, [duration, angle, reverse, playState]);
 
 	function updateTransition(setState, state, callback) {
 		document.querySelectorAll('.transition, .transition *').forEach(callback);
@@ -39,10 +39,10 @@ function App() {
 			i.style.animationDirection = reverse ? 'reverse' : 'normal'	
 		);
 
-	const updateDirection = (dir) =>
-		updateTransition(setDirection, dir, i => {
-			i.classList.remove(direction);
-			i.classList.add(dir);	
+	const updateAngle = (ang) =>
+		updateTransition(setAngle, ang, i => {
+			i.classList.remove(angle);
+			i.classList.add(ang);	
 		});
 
 	const updatePlayState = (playState) => 
